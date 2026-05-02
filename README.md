@@ -50,26 +50,32 @@ For running the stepper motor in clockwise and anticlockwise directions:
 ```asm
 ; Stepper Motor Interfacing Program in 8086 Assembly
 
-START:   MOV DI, 1200H        ; Initialize memory location to store array
-         MOV CX, 0004H        ; Initialize array size
+START  : MOV DI,1200H                   ; Initialize memory location to store the array of number
+         MOV CX,0004H                   ; Initialize array size
 
-DOWN1:   MOV AL, [DI]         ; Copy the first data into AL
-         OUT C0, AL           ; Send it through port address
+DOWN1  : MOV AL,[DI]                    ; Copy the first data in AL
+         OUT 0C0,AL                     ; Send it through the port address
 
-         MOV DX, 1010H        ; Delay subroutine
-L1:      DEC DX
+         MOV DX,1010H                   ; Introduce delay
+L1     : DEC DX
          JNZ L1
 
-         INC DI               ; Go to next memory location
-         LOOP DOWN1           ; Repeat until all data is sent
+         INC D1                         ; Go to next memory location
+         LOOPDOWN1                      ; Down until the data's have been sent 
 
-         JMP START            ; Continuous rotation
+         JMP START                      ; Go to start location for continuous rotation
 
-         HLT                  ; Stop
+         HLT                            ; Stop
 
-DATA:    DB 09H, 05H, 06H, 0AH ; Array of data
+DATA:    DB 09H, 05H, 06H, 0AH          ; Array of data
+
 ```
 ## OUTPUT OF THE PROGRAM:
+<img width="520" height="1152" alt="WhatsApp Image 2026-05-02 at 11 52 39 AM" src="https://github.com/user-attachments/assets/2ece574b-75fe-4ba1-a0fe-c16b42686413" />
+
+<img width="520" height="1152" alt="WhatsApp Image 2026-05-02 at 11 52 41 AM" src="https://github.com/user-attachments/assets/ca4ffe56-d5e1-4ec7-9a62-92ecca8216c6" />
+
+
 
 ## RESULT
 
